@@ -1,0 +1,6 @@
+kafka_connect\KafkaConnectApplication.class
+kafka_connect\service\ReceiverService.class
+kafka_connect\service\Producer$1.class
+kafka_connect\service\ReceiverConfig.class
+kafka_connect\controller\KafkaConnectController.class
+kafka_connect\service\Producer.class
