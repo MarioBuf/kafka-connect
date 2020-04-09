@@ -24,8 +24,20 @@ public class KafkaConnectController {
 	private ReceiverService consumer;
 	
 	@GetMapping(value = "/producer")
-    public void sendMessageToKafkaTopic(@RequestParam("message") String message) {
-        producer.sendMessage(message);
+    public ResponseEntity<String> sendMessageToKafkaTopic(@RequestParam("message") String message) {
+		ResponseEntity<String> response=new ResponseEntity<String>("Formato Messaggio Errato", HttpStatus.NOT_ACCEPTABLE);
+		try {
+			String[] details=message.split("_:_");
+			if(details[0].length()>0 && details[1].length()>0) {
+				response=new ResponseEntity<String>("", HttpStatus.OK);
+				producer.sendMessage(message);
+			}
+			else
+				throw new Exception();
+		} catch (Exception e) {
+			response=new ResponseEntity<String>("Formato Messaggio Errato", HttpStatus.NOT_ACCEPTABLE);
+		}
+		return response;
     }
 	
 	@GetMapping(value = "/consumer")
