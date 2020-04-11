@@ -1,17 +1,5 @@
 #!/bin/bash -e
 
-if [ -z "$NGROK_AUTH" ]; then
-    exit 1
-  else
-    if [ -z "$HOSTNAME" ]; then
-        exit 1
-      else
-        if [ -z "$REGION" ]; then
-          exit 1
-        fi
-    fi
-fi;
-
 #Issue newline to config file in case there is not one already
 echo "" >> "$KAFKA_HOME/config/server.properties"
 

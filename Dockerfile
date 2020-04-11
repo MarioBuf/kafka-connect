@@ -22,8 +22,8 @@ RUN ls -l /tmp/kafka.tgz
 RUN tar xfz /tmp/kafka.tgz -C /opt && rm /tmp/kafka.tgz
 ADD kafka/config/server.properties $KAFKA_HOME/config
 
-RUN wget -q "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip" -O /tmp/ngrok.zip
-RUN ls -l /tmp/ngrok.zip
+RUN set -x && apk add --no-cache curl
+RUN curl -Lo /tmp/ngrok.zip "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip"
 RUN unzip -o /tmp/ngrok.zip -d $HOME && rm -f /tmp/ngrok.zip
 
 ADD kafka/config/ngrok.yml $HOME/.ngrok2/
@@ -37,6 +37,8 @@ ADD kafka/starter/start-ngrok.sh /usr/bin/start-ngrok.sh
 
 ADD kafka/supervisor/zookeeper.ini kafka/supervisor/kafka.ini kafka/supervisor/kafka-connect.ini kafka/supervisor/ngrok.ini /etc/supervisor.d/
 
+COPY kafka/entrypoint.sh /
+
 EXPOSE 4040
 
-CMD ["supervisord", "-n"]
+CMD ["/entrypoint.sh"]
