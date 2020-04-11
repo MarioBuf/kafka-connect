@@ -37,7 +37,9 @@ ADD kafka/starter/start-ngrok.sh /usr/bin/start-ngrok.sh
 
 ADD kafka/supervisor/zookeeper.ini kafka/supervisor/kafka.ini kafka/supervisor/kafka-connect.ini kafka/supervisor/ngrok.ini /etc/supervisor.d/
 
-COPY kafka/entrypoint.sh /
+COPY entrypoint.sh /
+
+VOLUME /app
 
 EXPOSE 4040
 
