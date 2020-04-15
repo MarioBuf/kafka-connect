@@ -38,6 +38,7 @@ Per poter configurare una connessione diretta con un server Apache Kafka standal
   cd path/cartella/estratta
 ```
 5. Avviate Zookeeper, che serve come appoggio al server di Apache Kafka, con il seguente comando:
+
   Windows:
 ```
   bin\windows\zookeeper-server-start.bat config\zookeeper.properties
@@ -57,6 +58,7 @@ Per poter configurare una connessione diretta con un server Apache Kafka standal
 7. Aprite un secondo prompt dei comandi ( o terminale )
 8. Ripetere passo 4
 9. Avviate un server Apache Kafka con il seguente comando:
+
   Windows:
 ```
   bin\windows\kafka-server-start.bat config\server.properties
@@ -66,6 +68,7 @@ Per poter configurare una connessione diretta con un server Apache Kafka standal
   bin\kafka-server-start.sh config\server.properties
 ```
 10. Create un nuovo topic, dal nome _status_ ripetendo il passo 7 e 8 ed eseguendo il seguente comando
+
   Windows:
 ```
   bin\windows\kafka-topics.bat --create --bootstrap-server IP-STATICO:PORTA --replication-factor 1 --partitions 1 --topic status
