@@ -14,12 +14,13 @@ Kafka-Connect rappresenta una parte del mio lavoro di Tesi di Laurea Triennale p
 Se avete la possibilità di configurare un IP statico per la vostra configurazione di rete, potete andare alla sezione 'Setup Diretto Apache Kafka'.
 Per poter avviare correttamente il server tramite l'immagine Docker in un apposito container, seguite i seguenti passi:
 1. Download e installazione dell'ultima versione di [Docker](https://www.docker.com/products/docker-desktop)
-2. Aprite il prompt dei comandi ( o terminale, a seconda del vostro OS )
-3. Eseguite il seguente comando per scaricare l'immagine: 
+2. Cliccate con il tasto destro sull'icona di Docker in basso a destra e seleziona _Switch to Linux Containers_
+3. Aprite il prompt dei comandi ( o terminale, a seconda del vostro OS )
+4. Eseguite il seguente comando per scaricare l'immagine: 
 ```
    docker pull marbuf/kafka-connect
 ```
-4. Avviate l'immagine tramite il comando:
+5. Avviate l'immagine tramite il comando:
 ```
   docker run -eNGROK_AUTH=... -eHOSTNAME=... -eREGION=... marbuf/kafka-connect
 ```
