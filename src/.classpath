@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src/.mvn/wrapper"/>
+	<classpathentry kind="src" path="src/src/main/java"/>
+	<classpathentry kind="lib" path="src/target/kafka-connect-0.1.jar"/>
+	<classpathentry kind="output" path="src/target/classes"/>
+</classpath>
